@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MiniChallengeFiveToSeven_Endpoints.Controllers;
 
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class ReverseItNumbersController : ControllerBase
     {
         

@@ -4,7 +4,7 @@ using MiniChallengeFiveToSeven_Endpoints.Services.ReverseItAlphanumeric;
 namespace MiniChallengeFiveToSeven_Endpoints.Controllers;
 
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class ReverseItAlphanumericController : ControllerBase
     {
     private readonly IReverseItAlphanumericService _reverseItAlphanumericService;
