@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MiniChallengeFiveToSeven_Endpoints.Services.ReverseItAlphanumeric;
 
 namespace MiniChallengeFiveToSeven_Endpoints.Controllers;
 
@@ -6,13 +7,16 @@ namespace MiniChallengeFiveToSeven_Endpoints.Controllers;
     [Route("api/[controller]")]
     public class ReverseItAlphanumericController : ControllerBase
     {
+    private readonly IReverseItAlphanumericService _reverseItAlphanumericService;
+
+    public ReverseItAlphanumericController(IReverseItAlphanumericService reverseItAlphanumericService)
+        {
+        _reverseItAlphanumericService = reverseItAlphanumericService;
+    }
+
         [HttpGet]
         [Route("EnterInAlphanumeric/{alphanumeric}")]
         public string ReverseIt(string alphanumeric){
-            string reversed = "";
-            for(int i = alphanumeric.Length - 1; i >= 0; i--){
-                reversed += alphanumeric[i];
-            }
-            return $"You entered {alphanumeric}, reversed is {reversed}";
+            return _reverseItAlphanumericService.ReverseIt(alphanumeric);
         }
     }

@@ -1,12 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+namespace MiniChallengeFiveToSeven_Endpoints.Services.ReverseItAlphanumeric;
 
-namespace MiniChallengeFiveToSeven_Endpoints.Services.ReverseItAlphanumeric
+public class ReverseItAlphanumericService : IReverseItAlphanumericService
 {
-    public class ReverseItAlphanumericService
+    public string ReverseIt(string alphanumeric)
     {
-        
+        string reversed = "";
+            for(int i = alphanumeric.Length - 1; i >= 0; i--){
+                reversed += alphanumeric[i];
+            }
+            return $"You entered {alphanumeric}, reversed is {reversed}";
     }
 }
