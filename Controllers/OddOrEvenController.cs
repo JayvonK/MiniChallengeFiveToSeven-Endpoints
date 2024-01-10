@@ -6,7 +6,6 @@ namespace MiniChallengeFiveToSeven_Endpoints.Controllers;
     [Route("[controller]")]
     public class OddOrEvenController : ControllerBase
     {
-        
         [HttpGet]
         [Route("EnterANumber/{number}")]
         public string OddOrEven(string number){
