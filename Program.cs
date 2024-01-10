@@ -1,4 +1,5 @@
 using MiniChallengeFiveToSeven_Endpoints.Services.MadLib;
+using MiniChallengeFiveToSeven_Endpoints.Services.OddOrEven;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IMadLibService, MadLibService>();
-builder.Services.AddScoped<IMadLibService, MadLibService>();
+builder.Services.AddScoped<IOddOrEvenService, OddOrEvenService>();
 
 var app = builder.Build();
 
