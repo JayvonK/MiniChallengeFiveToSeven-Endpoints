@@ -1,5 +1,6 @@
 using MiniChallengeFiveToSeven_Endpoints.Services.MadLib;
 using MiniChallengeFiveToSeven_Endpoints.Services.OddOrEven;
+using MiniChallengeFiveToSeven_Endpoints.Services.ReverseItAlphanumeric;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IMadLibService, MadLibService>();
 builder.Services.AddScoped<IOddOrEvenService, OddOrEvenService>();
+builder.Services.AddScoped<IReverseItAlphanumericService, ReverseItAlphanumericService>();
 
 var app = builder.Build();
 
