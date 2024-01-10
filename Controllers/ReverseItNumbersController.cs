@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MiniChallengeFiveToSeven_Endpoints.Services.ReverseItNumbers;
 
 namespace MiniChallengeFiveToSeven_Endpoints.Controllers;
 
@@ -6,18 +7,16 @@ namespace MiniChallengeFiveToSeven_Endpoints.Controllers;
     [Route("[controller]")]
     public class ReverseItNumbersController : ControllerBase
     {
+    private readonly IReverseItNumbersService _reverseItNumbersService;
+
+    public ReverseItNumbersController(IReverseItNumbersService reverseItNumbersService)
+        {
+        _reverseItNumbersService = reverseItNumbersService;
+    }
         
         [HttpGet]
         [Route("EnterNumber/{number}")]
         public string ReversedNumber(string number){
-            string reversed = "";
-            if(double.TryParse(number, out double num)){
-                for(int i = number.Length - 1; i >= 0; i--){
-                    reversed += number[i];
-                }
-                return $"You entered {number}, reversed is {reversed}";
-            } else {
-                return "ERROR! You entered an invalid input, please enter in a number";
-            }
+            return _reverseItNumbersService.ReversedNumber(number);
         }
     }
